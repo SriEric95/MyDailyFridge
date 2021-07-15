@@ -3227,6 +3227,9 @@
                 "psr",
                 "psr-6"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/cache/tree/master"
+            },
             "install-path": "../psr/cache"
         },
         {
@@ -3330,6 +3333,9 @@
                 "psr-13",
                 "rest"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/link/tree/master"
+            },
             "install-path": "../psr/link"
         },
         {
