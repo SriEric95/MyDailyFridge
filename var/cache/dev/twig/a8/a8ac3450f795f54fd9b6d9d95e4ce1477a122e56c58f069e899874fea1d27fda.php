@@ -155,6 +155,6 @@ class __TwigTemplate_a2e97d9648ff661ac6a5a1f522ed4e3a9146c36982ca7efa79afac27268
 {% block panel %}
     {{ render(path('_profiler_router', { token: token })) }}
 {% endblock %}
-", "@WebProfiler/Collector/router.html.twig", "D:\\Daily Fridge Git Hub\\DailyFridgeTest\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\router.html.twig");
+", "@WebProfiler/Collector/router.html.twig", "C:\\wamp64\\www\\Projets_A_Deployer\\MyDailyFridge\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\router.html.twig");
     }
 }

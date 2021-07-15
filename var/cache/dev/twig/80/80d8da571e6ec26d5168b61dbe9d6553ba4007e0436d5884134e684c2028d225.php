@@ -803,6 +803,6 @@ class __TwigTemplate_aa1b19cc941d8ca0c374542246bf712049f0053e1aad4824759b208823a
         </table>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/config.html.twig", "D:\\Daily Fridge Git Hub\\DailyFridgeTest\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
+", "@WebProfiler/Collector/config.html.twig", "C:\\wamp64\\www\\Projets_A_Deployer\\MyDailyFridge\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
     }
 }

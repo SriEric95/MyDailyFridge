@@ -2080,6 +2080,6 @@ class __TwigTemplate_fe870f1f8c9cdda9e7d1cded940fce6ff3b37cc87b1d5854cf36ef88052
         {{ tree.form_tree_details(childName, childData, forms_by_hash) }}
     {% endfor %}
 {% endmacro %}
-", "@WebProfiler/Collector/form.html.twig", "D:\\Daily Fridge Git Hub\\DailyFridgeTest\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\form.html.twig");
+", "@WebProfiler/Collector/form.html.twig", "C:\\wamp64\\www\\Projets_A_Deployer\\MyDailyFridge\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\form.html.twig");
     }
 }

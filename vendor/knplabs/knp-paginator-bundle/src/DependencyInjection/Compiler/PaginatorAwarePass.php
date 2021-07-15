@@ -17,12 +17,12 @@ final class PaginatorAwarePass implements CompilerPassInterface
     /**
      * @var string
      */
-    const PAGINATOR_AWARE_TAG = 'knp_paginator.injectable';
+    public const PAGINATOR_AWARE_TAG = 'knp_paginator.injectable';
 
     /**
      * @var string
      */
-    const PAGINATOR_AWARE_INTERFACE = 'Knp\Bundle\PaginatorBundle\Definition\PaginatorAwareInterface';
+    public const PAGINATOR_AWARE_INTERFACE = 'Knp\Bundle\PaginatorBundle\Definition\PaginatorAwareInterface';
 
     /**
      * Populates all tagged services with the paginator service.
@@ -34,7 +34,7 @@ final class PaginatorAwarePass implements CompilerPassInterface
     {
         $defaultAttributes = ['paginator' => 'knp_paginator'];
 
-        foreach ($container->findTaggedServiceIds(self::PAGINATOR_AWARE_TAG) as $id => $attributes) {
+        foreach ($container->findTaggedServiceIds(self::PAGINATOR_AWARE_TAG) as $id => [$attributes]) {
             $definition = $container->getDefinition($id);
 
             $refClass = new \ReflectionClass($definition->getClass());

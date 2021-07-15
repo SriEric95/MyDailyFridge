@@ -25,7 +25,7 @@ final class WebpackEncoreExtension extends Extension
 {
     private const ENTRYPOINTS_FILE_NAME = 'entrypoints.json';
 
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new XmlFileLoader($container, new FileLocator(\dirname(__DIR__).'/Resources/config'));
         $loader->load('services.xml');
@@ -68,7 +68,9 @@ final class WebpackEncoreExtension extends Extension
         }
 
         $container->getDefinition('webpack_encore.tag_renderer')
-            ->replaceArgument(2, $defaultAttributes);
+            ->replaceArgument(2, $defaultAttributes)
+            ->replaceArgument(3, $config['script_attributes'])
+            ->replaceArgument(4, $config['link_attributes']);
 
         if ($config['preload']) {
             if (!class_exists(AddLinkHeaderListener::class)) {

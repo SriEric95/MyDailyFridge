@@ -34,7 +34,6 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="8", minMessage="Votre mot de passe doit faire au moins huit caractères")
-     * @Assert\EqualTo(propertyPath="Confirm_mdp", message="Vos mots de passe ne correspondent pas !")
      */  
     private $password;
 
@@ -135,6 +134,18 @@ class User implements UserInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    public function getConfirm_mdp(): ?string
+    {
+        return $this->Confirm_mdp;
+    }
+
+    public function setConfirm_mdp(string $Confirm_mdp): self
+    {
+        $this->Confirm_mdp = $Confirm_mdp;
 
         return $this;
     }

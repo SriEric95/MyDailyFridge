@@ -18,7 +18,7 @@ use Liip\ImagineBundle\Config\Filter\Argument\Size;
  */
 final class Background extends FilterAbstract
 {
-    const NAME = 'background';
+    public const NAME = 'background';
 
     /**
      * @var string
@@ -44,7 +44,6 @@ final class Background extends FilterAbstract
      * @param string|null $color        background color HEX value
      * @param string|null $transparency possible values 0..100
      * @param string|null $position     position of the input image on the newly created background image. Valid values: topleft, top, topright, left, center, right, bottomleft, bottom, and bottomright
-     * @param Size        $size
      */
     public function __construct(
         string $color = null,

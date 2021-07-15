@@ -18,7 +18,7 @@ use Liip\ImagineBundle\Config\Filter\Argument\Size;
  */
 final class Upscale extends FilterAbstract
 {
-    const NAME = 'upscale';
+    public const NAME = 'upscale';
 
     /**
      * @var Size
@@ -31,8 +31,7 @@ final class Upscale extends FilterAbstract
     private $by;
 
     /**
-     * @param Size  $min
-     * @param float $by  sets the "ratio multiple" which initiates a proportional scale operation computed by multiplying all image sides by this value
+     * @param float $by sets the "ratio multiple" which initiates a proportional scale operation computed by multiplying all image sides by this value
      */
     public function __construct(Size $min, float $by = null)
     {

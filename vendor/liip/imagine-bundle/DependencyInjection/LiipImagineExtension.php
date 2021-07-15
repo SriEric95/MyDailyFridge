@@ -37,17 +37,11 @@ class LiipImagineExtension extends Extension
      */
     private $loadersFactories = [];
 
-    /**
-     * @param ResolverFactoryInterface $resolverFactory
-     */
     public function addResolverFactory(ResolverFactoryInterface $resolverFactory)
     {
         $this->resolversFactories[$resolverFactory->getName()] = $resolverFactory;
     }
 
-    /**
-     * @param LoaderFactoryInterface $loaderFactory
-     */
     public function addLoaderFactory(LoaderFactoryInterface $loaderFactory)
     {
         $this->loadersFactories[$loaderFactory->getName()] = $loaderFactory;
@@ -63,9 +57,6 @@ class LiipImagineExtension extends Extension
 
     /**
      * @see \Symfony\Component\DependencyInjection\Extension.ExtensionInterface::load()
-     *
-     * @param array            $configs
-     * @param ContainerBuilder $container
      */
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -135,6 +126,13 @@ class LiipImagineExtension extends Extension
             $container->getDefinition('liip_imagine.data.manager')
                 ->replaceArgument(1, $mimeTypes);
         }
+
+        $this->deprecationTemplatingFilterHelper($container);
+
+        $container->setParameter('liip_imagine.webp.generate', $config['webp']['generate']);
+        $webpOptions = $config['webp'];
+        unset($webpOptions['generate']);
+        $container->setParameter('liip_imagine.webp.options', $webpOptions);
     }
 
     private function createFilterSets(array $defaultFilterSets, array $filterSets): array
@@ -144,33 +142,36 @@ class LiipImagineExtension extends Extension
         }, $filterSets);
     }
 
-    /**
-     * @param array            $config
-     * @param ContainerBuilder $container
-     */
     private function loadResolvers(array $config, ContainerBuilder $container)
     {
         $this->createFactories($this->resolversFactories, $config, $container);
     }
 
-    /**
-     * @param array            $config
-     * @param ContainerBuilder $container
-     */
     private function loadLoaders(array $config, ContainerBuilder $container)
     {
         $this->createFactories($this->loadersFactories, $config, $container);
     }
 
-    /**
-     * @param array            $factories
-     * @param array            $configurations
-     * @param ContainerBuilder $container
-     */
     private function createFactories(array $factories, array $configurations, ContainerBuilder $container)
     {
         foreach ($configurations as $name => $conf) {
             $factories[key($conf)]->create($container, $name, $conf[key($conf)]);
+        }
+    }
+
+    private function deprecationTemplatingFilterHelper(ContainerBuilder $container): void
+    {
+        if (!$container->hasDefinition('liip_imagine.templating.filter_helper')) {
+            return;
+        }
+
+        $message = 'The "%service_id%" service is deprecated since LiipImagineBundle 2.2 and will be removed in 3.0.';
+        $definition = $container->getDefinition('liip_imagine.templating.filter_helper');
+
+        if (method_exists(Definition::class, 'getDeprecation')) {
+            $definition->setDeprecated('liip/imagine-bundle', '2.2', $message);
+        } else {
+            $definition->setDeprecated(true, $message);
         }
     }
 }

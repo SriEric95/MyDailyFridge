@@ -71,15 +71,13 @@ class __TwigTemplate_3f77046c35517f71428fbf2d99e2dbd7d2939343de004e919704510f026
 <h3>1. Présentation du site.</h3>
 <p>En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site <a href=\"http://www.mydailyfridge.com/\">www.mydailyfridge.com</a> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :</p>
 <p><strong>Propriétaire</strong> : MyDailyFridge –  – Evry<br />
-<strong>Créateur</strong>  : <a href=\"https://fr.linkedin.com/in/srivatsa-eric-pourouchottamane-b00b54136\">Pourouchottamane Srivatsa, Iqbal Hassan et  Batchayo Stephane</a><br />
-<strong>Responsable publication</strong> : Iqbal Hassan – admin@mydailyfridge.com<br />
+<strong>Créateur</strong>  : <a href=\"https://fr.linkedin.com/in/srivatsa-eric-pourouchottamane-b00b54136\">Pourouchottamane Srivatsa et Batchayo Stephane</a><br />
+<strong>Responsable publication</strong> : Pourouchottamane Srivatsa – pouroucheric@gmail.com<br />
 Le responsable publication est une personne physique ou une personne morale.<br />
 <strong>Webmaster</strong> : Pourouchottamane Srivatsa et Batchayo Stephane – admin@mydailyfridge.com<br />
-<strong>Hébergeur</strong> : Amazon Web Service – Seattle, Washington, États-Unis<br />
+<strong>Hébergeur</strong> : OVH – RCS Lille Métropole 424 761 419 00045<br />
 Crédits : Pourouchottamane Srivatsa - Développeur
-Batchayo Stephane - Développeur
-Iqbal Hassan -  Administrateur système<br />
-Le modèle de mentions légales est offert par Subdelirium.com <a target=\"_blank\" href=\"https://www.subdelirium.com/generateur-de-mentions-legales/\" alt=\"generateur de mentions légales\">Générateur de mentions légales</a></p>
+Batchayo Stephane - Développeur <br />
 
 <h3>2. Conditions générales d’utilisation du site et des services proposés.</h3>
 <p>L’utilisation du site <a href=\"http://www.mydailyfridge.com/\">www.mydailyfridge.com</a> implique l’acceptation pleine et entière des conditions générales d’utilisation ci-après décrites. Ces conditions d’utilisation sont susceptibles d’être modifiées ou complétées à tout moment, les utilisateurs du site <a href=\"http://www.mydailyfridge.com/\">www.mydailyfridge.com</a> sont donc invités à les consulter de manière régulière.</p>
@@ -136,7 +134,7 @@ Le modèle de mentions légales est offert par Subdelirium.com <a target=\"_blan
 
     }
 
-    // line 67
+    // line 65
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -146,7 +144,7 @@ Le modèle de mentions légales est offert par Subdelirium.com <a target=\"_blan
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 68
+        // line 66
         echo "
 ";
         
@@ -169,7 +167,7 @@ Le modèle de mentions légales est offert par Subdelirium.com <a target=\"_blan
 
     public function getDebugInfo()
     {
-        return array (  150 => 68,  140 => 67,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  148 => 66,  138 => 65,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -182,15 +180,13 @@ Le modèle de mentions légales est offert par Subdelirium.com <a target=\"_blan
 <h3>1. Présentation du site.</h3>
 <p>En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site <a href=\"http://www.mydailyfridge.com/\">www.mydailyfridge.com</a> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :</p>
 <p><strong>Propriétaire</strong> : MyDailyFridge –  – Evry<br />
-<strong>Créateur</strong>  : <a href=\"https://fr.linkedin.com/in/srivatsa-eric-pourouchottamane-b00b54136\">Pourouchottamane Srivatsa, Iqbal Hassan et  Batchayo Stephane</a><br />
-<strong>Responsable publication</strong> : Iqbal Hassan – admin@mydailyfridge.com<br />
+<strong>Créateur</strong>  : <a href=\"https://fr.linkedin.com/in/srivatsa-eric-pourouchottamane-b00b54136\">Pourouchottamane Srivatsa et Batchayo Stephane</a><br />
+<strong>Responsable publication</strong> : Pourouchottamane Srivatsa – pouroucheric@gmail.com<br />
 Le responsable publication est une personne physique ou une personne morale.<br />
 <strong>Webmaster</strong> : Pourouchottamane Srivatsa et Batchayo Stephane – admin@mydailyfridge.com<br />
-<strong>Hébergeur</strong> : Amazon Web Service – Seattle, Washington, États-Unis<br />
+<strong>Hébergeur</strong> : OVH – RCS Lille Métropole 424 761 419 00045<br />
 Crédits : Pourouchottamane Srivatsa - Développeur
-Batchayo Stephane - Développeur
-Iqbal Hassan -  Administrateur système<br />
-Le modèle de mentions légales est offert par Subdelirium.com <a target=\"_blank\" href=\"https://www.subdelirium.com/generateur-de-mentions-legales/\" alt=\"generateur de mentions légales\">Générateur de mentions légales</a></p>
+Batchayo Stephane - Développeur <br />
 
 <h3>2. Conditions générales d’utilisation du site et des services proposés.</h3>
 <p>L’utilisation du site <a href=\"http://www.mydailyfridge.com/\">www.mydailyfridge.com</a> implique l’acceptation pleine et entière des conditions générales d’utilisation ci-après décrites. Ces conditions d’utilisation sont susceptibles d’être modifiées ou complétées à tout moment, les utilisateurs du site <a href=\"http://www.mydailyfridge.com/\">www.mydailyfridge.com</a> sont donc invités à les consulter de manière régulière.</p>
@@ -244,6 +240,6 @@ Le modèle de mentions légales est offert par Subdelirium.com <a target=\"_blan
 
 {% endblock %}
 
-", "daily_fridge/mention_legal.html.twig", "D:\\Daily Fridge Git Hub\\DailyFridgeTest\\templates\\daily_fridge\\mention_legal.html.twig");
+", "daily_fridge/mention_legal.html.twig", "C:\\wamp64\\www\\Projets_A_Deployer\\MyDailyFridge\\templates\\daily_fridge\\mention_legal.html.twig");
     }
 }

@@ -15,6 +15,7 @@ use Liip\ImagineBundle\Binary\BinaryInterface;
 use Liip\ImagineBundle\Binary\Loader\LoaderInterface;
 use Liip\ImagineBundle\Binary\MimeTypeGuesserInterface;
 use Liip\ImagineBundle\Exception\InvalidArgumentException;
+use Liip\ImagineBundle\Exception\LogicException;
 use Liip\ImagineBundle\Imagine\Filter\FilterConfiguration;
 use Liip\ImagineBundle\Model\Binary;
 use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserInterface as DeprecatedExtensionGuesserInterface;
@@ -53,9 +54,7 @@ class DataManager
     protected $loaders = [];
 
     /**
-     * @param MimeTypeGuesserInterface                               $mimeTypeGuesser
      * @param DeprecatedExtensionGuesserInterface|MimeTypesInterface $extensionGuesser
-     * @param FilterConfiguration                                    $filterConfig
      * @param string                                                 $defaultLoader
      * @param string                                                 $globalDefaultImage
      */
@@ -84,8 +83,7 @@ class DataManager
     /**
      * Adds a loader to retrieve images for the given filter.
      *
-     * @param string          $filter
-     * @param LoaderInterface $loader
+     * @param string $filter
      */
     public function addLoader($filter, LoaderInterface $loader)
     {
@@ -108,11 +106,7 @@ class DataManager
         $loaderName = empty($config['data_loader']) ? $this->defaultLoader : $config['data_loader'];
 
         if (!isset($this->loaders[$loaderName])) {
-            throw new \InvalidArgumentException(sprintf(
-                'Could not find data loader "%s" for "%s" filter type',
-                $loaderName,
-                $filter
-            ));
+            throw new \InvalidArgumentException(sprintf('Could not find data loader "%s" for "%s" filter type', $loaderName, $filter));
         }
 
         return $this->loaders[$loaderName];
@@ -124,7 +118,7 @@ class DataManager
      * @param string $filter
      * @param string $path
      *
-     * @throws \LogicException
+     * @throws LogicException
      *
      * @return BinaryInterface
      */
@@ -145,11 +139,11 @@ class DataManager
         }
 
         if (null === $binary->getMimeType()) {
-            throw new \LogicException(sprintf('The mime type of image %s was not guessed.', $path));
+            throw new LogicException(sprintf('The mime type of image %s was not guessed.', $path));
         }
 
-        if (0 !== mb_strpos($binary->getMimeType(), 'image/')) {
-            throw new \LogicException(sprintf('The mime type of image %s must be image/xxx got %s.', $path, $binary->getMimeType()));
+        if (0 !== mb_strpos($binary->getMimeType(), 'image/') && 'application/pdf' !== $binary->getMimeType()) {
+            throw new LogicException(sprintf('The mime type of file %s must be image/xxx or application/pdf, got %s.', $path, $binary->getMimeType()));
         }
 
         return $binary;

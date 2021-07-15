@@ -417,6 +417,6 @@ class __TwigTemplate_2d4af8ebf007d42f55d92b197700d957731a3b6d983f7cb9e9a735d338b
     });
 })();
 </script>
-", "@WebProfiler/Profiler/settings.html.twig", "D:\\Daily Fridge Git Hub\\DailyFridgeTest\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\settings.html.twig");
+", "@WebProfiler/Profiler/settings.html.twig", "C:\\wamp64\\www\\Projets_A_Deployer\\MyDailyFridge\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\settings.html.twig");
     }
 }

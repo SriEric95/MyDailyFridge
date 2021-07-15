@@ -105,7 +105,10 @@ class GuardAuthenticationProvider implements AuthenticationProviderInterface
         $user = $guardAuthenticator->getUser($token->getCredentials(), $this->userProvider);
 
         if (null === $user) {
-            throw new UsernameNotFoundException(sprintf('Null returned from "%s::getUser()".', \get_class($guardAuthenticator)));
+            $e = new UsernameNotFoundException(sprintf('Null returned from "%s::getUser()".', \get_class($guardAuthenticator)));
+            $e->setUsername($token->getUsername());
+
+            throw $e;
         }
 
         if (!$user instanceof UserInterface) {
@@ -115,7 +118,7 @@ class GuardAuthenticationProvider implements AuthenticationProviderInterface
         $this->userChecker->checkPreAuth($user);
         if (true !== $checkCredentialsResult = $guardAuthenticator->checkCredentials($token->getCredentials(), $user)) {
             if (false !== $checkCredentialsResult) {
-                @trigger_error(sprintf('"%s::checkCredentials()" must return a boolean value. You returned "%s". This behavior is deprecated in Symfony 4.4 and will trigger a TypeError in Symfony 5.', \get_class($guardAuthenticator), \is_object($checkCredentialsResult) ? \get_class($checkCredentialsResult) : \gettype($checkCredentialsResult)), E_USER_DEPRECATED);
+                @trigger_error(sprintf('"%s::checkCredentials()" must return a boolean value. You returned "%s". This behavior is deprecated in Symfony 4.4 and will trigger a TypeError in Symfony 5.', \get_class($guardAuthenticator), \is_object($checkCredentialsResult) ? \get_class($checkCredentialsResult) : \gettype($checkCredentialsResult)), \E_USER_DEPRECATED);
             }
 
             throw new BadCredentialsException(sprintf('Authentication failed because "%s::checkCredentials()" did not return true.', \get_class($guardAuthenticator)));

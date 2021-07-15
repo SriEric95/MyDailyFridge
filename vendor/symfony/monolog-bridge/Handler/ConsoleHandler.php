@@ -51,7 +51,7 @@ class ConsoleHandler extends AbstractProcessingHandler implements EventSubscribe
         OutputInterface::VERBOSITY_VERY_VERBOSE => Logger::INFO,
         OutputInterface::VERBOSITY_DEBUG => Logger::DEBUG,
     ];
-    private $consoleFormaterOptions;
+    private $consoleFormatterOptions;
 
     /**
      * @param OutputInterface|null $output            The console output to use (the handler remains disabled when passing null
@@ -60,7 +60,7 @@ class ConsoleHandler extends AbstractProcessingHandler implements EventSubscribe
      * @param array                $verbosityLevelMap Array that maps the OutputInterface verbosity to a minimum logging
      *                                                level (leave empty to use the default mapping)
      */
-    public function __construct(OutputInterface $output = null, bool $bubble = true, array $verbosityLevelMap = [], array $consoleFormaterOptions = [])
+    public function __construct(OutputInterface $output = null, bool $bubble = true, array $verbosityLevelMap = [], array $consoleFormatterOptions = [])
     {
         parent::__construct(Logger::DEBUG, $bubble);
         $this->output = $output;
@@ -69,25 +69,21 @@ class ConsoleHandler extends AbstractProcessingHandler implements EventSubscribe
             $this->verbosityLevelMap = $verbosityLevelMap;
         }
 
-        $this->consoleFormaterOptions = $consoleFormaterOptions;
+        $this->consoleFormatterOptions = $consoleFormatterOptions;
     }
 
     /**
      * {@inheritdoc}
-     *
-     * @return bool
      */
-    public function isHandling(array $record)
+    public function isHandling(array $record): bool
     {
         return $this->updateLevel() && parent::isHandling($record);
     }
 
     /**
      * {@inheritdoc}
-     *
-     * @return bool
      */
-    public function handle(array $record)
+    public function handle(array $record): bool
     {
         // we have to update the logging level each time because the verbosity of the
         // console output might have changed in the meantime (it is not immutable)
@@ -105,7 +101,7 @@ class ConsoleHandler extends AbstractProcessingHandler implements EventSubscribe
     /**
      * Disables the output.
      */
-    public function close()
+    public function close(): void
     {
         $this->output = null;
 
@@ -147,10 +143,8 @@ class ConsoleHandler extends AbstractProcessingHandler implements EventSubscribe
 
     /**
      * {@inheritdoc}
-     *
-     * @return void
      */
-    protected function write(array $record)
+    protected function write(array $record): void
     {
         // at this point we've determined for sure that we want to output the record, so use the output's own verbosity
         $this->output->write((string) $record['formatted'], false, $this->output->getVerbosity());
@@ -158,22 +152,20 @@ class ConsoleHandler extends AbstractProcessingHandler implements EventSubscribe
 
     /**
      * {@inheritdoc}
-     *
-     * @return FormatterInterface
      */
-    protected function getDefaultFormatter()
+    protected function getDefaultFormatter(): FormatterInterface
     {
         if (!class_exists(CliDumper::class)) {
             return new LineFormatter();
         }
         if (!$this->output) {
-            return new ConsoleFormatter($this->consoleFormaterOptions);
+            return new ConsoleFormatter($this->consoleFormatterOptions);
         }
 
         return new ConsoleFormatter(array_replace([
             'colors' => $this->output->isDecorated(),
             'multiline' => OutputInterface::VERBOSITY_DEBUG <= $this->output->getVerbosity(),
-        ], $this->consoleFormaterOptions));
+        ], $this->consoleFormatterOptions));
     }
 
     /**

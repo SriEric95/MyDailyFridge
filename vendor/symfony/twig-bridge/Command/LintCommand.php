@@ -48,7 +48,7 @@ class LintCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Lints a template and outputs encountered errors')
+            ->setDescription('Lint a template and outputs encountered errors')
             ->addOption('format', null, InputOption::VALUE_REQUIRED, 'The output format', 'txt')
             ->addOption('show-deprecations', null, InputOption::VALUE_NONE, 'Show deprecations as errors')
             ->addArgument('filename', InputArgument::IS_ARRAY, 'A file, a directory or "-" for reading from STDIN')
@@ -86,8 +86,8 @@ EOF
 
         if (!$filenames) {
             // @deprecated to be removed in 5.0
-            if (0 === ftell(STDIN)) {
-                @trigger_error('Piping content from STDIN to the "lint:twig" command without passing the dash symbol "-" as argument is deprecated since Symfony 4.4.', E_USER_DEPRECATED);
+            if (0 === ftell(\STDIN)) {
+                @trigger_error('Piping content from STDIN to the "lint:twig" command without passing the dash symbol "-" as argument is deprecated since Symfony 4.4.', \E_USER_DEPRECATED);
 
                 return $this->display($input, $output, $io, [$this->validate(file_get_contents('php://stdin'), uniqid('sf_', true))]);
             }
@@ -108,7 +108,7 @@ EOF
 
         if ($showDeprecations) {
             $prevErrorHandler = set_error_handler(static function ($level, $message, $file, $line) use (&$prevErrorHandler) {
-                if (E_USER_DEPRECATED === $level) {
+                if (\E_USER_DEPRECATED === $level) {
                     $templateLine = 0;
                     if (preg_match('/ at line (\d+)[ .]/', $message, $matches)) {
                         $templateLine = $matches[1];
@@ -221,12 +221,12 @@ EOF
             }
         });
 
-        $output->writeln(json_encode($filesInfo, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        $output->writeln(json_encode($filesInfo, \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES));
 
         return min($errors, 1);
     }
 
-    private function renderException(OutputInterface $output, string $template, Error $exception, string $file = null)
+    private function renderException(SymfonyStyle $output, string $template, Error $exception, string $file = null)
     {
         $line = $exception->getTemplateLine();
 

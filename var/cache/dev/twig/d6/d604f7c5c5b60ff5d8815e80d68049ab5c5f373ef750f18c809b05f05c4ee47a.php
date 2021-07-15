@@ -347,6 +347,6 @@ L'équipe MyDailyFridge vous souhaite une bonne visite !
 
 
 
-", "daily_fridge/accueil.html.twig", "D:\\Daily Fridge Git Hub\\DailyFridgeTest\\templates\\daily_fridge\\accueil.html.twig");
+", "daily_fridge/accueil.html.twig", "C:\\wamp64\\www\\Projets_A_Deployer\\MyDailyFridge\\templates\\daily_fridge\\accueil.html.twig");
     }
 }

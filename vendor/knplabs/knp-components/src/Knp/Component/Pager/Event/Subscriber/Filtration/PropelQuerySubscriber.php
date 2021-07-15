@@ -37,10 +37,10 @@ class PropelQuerySubscriber implements EventSubscriberInterface
                 $columns = explode(',', $columns);
             }
             $columns = (array) $columns;
-            if (isset($event->options[PaginatorInterface::FILTER_FIELD_WHITELIST])) {
+            if (isset($event->options[PaginatorInterface::FILTER_FIELD_ALLOW_LIST])) {
                 foreach ($columns as $column) {
-                    if (!in_array($column, $event->options[PaginatorInterface::FILTER_FIELD_WHITELIST])) {
-                        throw new \UnexpectedValueException("Cannot filter by: [{$column}] this field is not in whitelist");
+                    if (!in_array($column, $event->options[PaginatorInterface::FILTER_FIELD_ALLOW_LIST])) {
+                        throw new \UnexpectedValueException("Cannot filter by: [{$column}] this field is not in allow list");
                     }
                 }
             }

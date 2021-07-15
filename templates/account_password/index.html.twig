@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier mon mot de passe - My DailyFridge{% endblock %}
+
+{% block body %}
+    <h1>Modifier mon mot de passe</h1>
+    <a href="{{path('daily_fridge_index')}}">Retour à l'accueil</a>
+    <hr>
+    {% if notification %}
+        <div class="alert alert-info">
+            {{ notification }}
+        </div>
+    
+    {% endif %}
+    <br/>
+    {{ form(form) }}
+{% endblock %}

@@ -121,20 +121,15 @@ class __TwigTemplate_2e8d341ab857dca7dea4c6d374b6ce5abb2cbb4475fb31b812808b17d62
         echo "
       ";
         // line 20
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), "Confirm_mdp", [], "any", false, false, false, 20), 'row', ["label" => "Confirmation du mot de passe", "attr" => ["placeholder" => "Confirmation du mot de passe", "class" => "form-control"]]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), "TypeUtilisateur", [], "any", false, false, false, 20), 'row', ["label" => "Type d'utilisateur", "attr" => ["class" => "form-control"]]);
         // line 21
-        echo "
-      ";
-        // line 22
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), "TypeUtilisateur", [], "any", false, false, false, 22), 'row', ["label" => "Type d'utilisateur", "attr" => ["class" => "form-control"]]);
-        // line 23
         echo "
     <br/>
     <button type=\"submit\" class=\"btn btn-success\">Inscrire</button>
     <button type=\"reset\" class=\"btn btn-secondary \">  Effacer  </button>
     ";
-        // line 27
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), 'form_end');
+        // line 25
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), 'form_end');
         echo " 
     
     </div>
@@ -161,7 +156,7 @@ class __TwigTemplate_2e8d341ab857dca7dea4c6d374b6ce5abb2cbb4475fb31b812808b17d62
 
     public function getDebugInfo()
     {
-        return array (  137 => 27,  131 => 23,  129 => 22,  126 => 21,  124 => 20,  121 => 19,  119 => 18,  116 => 17,  114 => 16,  111 => 15,  109 => 14,  106 => 13,  104 => 12,  100 => 10,  98 => 9,  93 => 7,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
+        return array (  132 => 25,  126 => 21,  124 => 20,  121 => 19,  119 => 18,  116 => 17,  114 => 16,  111 => 15,  109 => 14,  106 => 13,  104 => 12,  100 => 10,  98 => 9,  93 => 7,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -185,8 +180,6 @@ class __TwigTemplate_2e8d341ab857dca7dea4c6d374b6ce5abb2cbb4475fb31b812808b17d62
         'placeholder':'Email','class':'form-control'  }} ) }}
       {{form_row(form.password, {'label':'Mot de passe', 'attr':{
         'placeholder':'Mot de passe','class':'form-control'  }} ) }}
-      {{form_row(form.Confirm_mdp, {'label':'Confirmation du mot de passe', 'attr':{
-        'placeholder':'Confirmation du mot de passe','class':'form-control'  }} ) }}
       {{form_row(form.TypeUtilisateur, {'label':'Type d\\'utilisateur', 'attr':{
         'class':'form-control'}} ) }}
     <br/>
@@ -199,6 +192,6 @@ class __TwigTemplate_2e8d341ab857dca7dea4c6d374b6ce5abb2cbb4475fb31b812808b17d62
 
 {% endblock %}
 
-", "security/registration.html.twig", "D:\\Daily Fridge Git Hub\\DailyFridgeTest\\templates\\security\\registration.html.twig");
+", "security/registration.html.twig", "C:\\wamp64\\www\\Projets_A_Deployer\\MyDailyFridge\\templates\\security\\registration.html.twig");
     }
 }

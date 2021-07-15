@@ -43,7 +43,7 @@ class SwitchUserListener extends AbstractListener implements ListenerInterface
 {
     use LegacyListenerTrait;
 
-    const EXIT_VALUE = '_exit';
+    public const EXIT_VALUE = '_exit';
 
     private $tokenStorage;
     private $provider;
@@ -217,6 +217,7 @@ class SwitchUserListener extends AbstractListener implements ListenerInterface
 
         if (null !== $this->dispatcher && $original->getUser() instanceof UserInterface) {
             $user = $this->provider->refreshUser($original->getUser());
+            $original->setUser($user);
             $switchEvent = new SwitchUserEvent($request, $user, $original);
             $this->dispatcher->dispatch($switchEvent, SecurityEvents::SWITCH_USER);
             $original = $switchEvent->getToken();
